@@ -1,14 +1,20 @@
 import React from 'react';
+import '../App.css'
 
 class Main extends React.Component {
 
   constructor() {
     super()
-    this.count = 0
-    this.task = ""
+    this.count = 1
 
     this.state = {
-      tasks : []
+      tasks : [
+        {
+          id: 0,
+          title: 'TODO',
+          status: false
+        }
+      ]
     }
   }
 
@@ -16,6 +22,7 @@ class Main extends React.Component {
     const newTasks = [...this.state.tasks];
     newTasks[id].status = !newTasks[id].status;
     this.setState({ tasks: newTasks });
+    console.table(newTasks);
   } 
 
   onChange = (newTask) => {
@@ -36,8 +43,8 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Input onChangeInput={this.onChange}>Task: </Input>
-        <Button handleClick={this.onAdd}>Add</Button>
+        <Input onChangeInput={this.onChange}>XXX</Input>
+        <Button handleClick={this.onAdd}>Add 2</Button>
         <TaskList tasks={this.state.tasks} handleClick={this.onDone}/>
       </div>
     )
